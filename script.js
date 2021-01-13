@@ -135,3 +135,55 @@ let calcu = (m, n) => {
 let str = 'Hello, my dear friend';
 console.log(str.slice(str.indexOf('l'), str.length));
 */
+
+let obj = {
+    name: 'tolya',
+    age: 35,
+    height: 169,
+    hobbie: {
+        guitar: 'low',
+        football: 5,
+        drawing: 10
+    },
+    makeTest: function() {
+        console.log(3);
+    }
+};
+obj.makeTest();
+
+console.log(Object.keys(obj).length);
+
+let counter = 0;
+for (let key in obj) {
+    if (typeof(obj[key]) === 'object') {
+        for (let i in obj[key]) {
+            console.log(`свойство ${i} имеет значение ${obj[key][i]}`);
+        }
+    } else {
+        console.log(`свойство ${key} имеет значение ${obj[key]}`);
+        counter ++;
+    }
+}
+
+console.log(counter);
+
+const numbers = {
+    a: 10,
+    b: 2,
+    c: 6,
+    d: {
+        e: 269,
+        f: 23
+    }
+};
+
+function newNumbers(objectIn) {
+    let objectClone = {};
+    for (let key in objectIn) {
+        objectClone[key] = objectIn[key];
+    }
+    return objectClone;
+}
+
+let numbersClone = newNumbers(numbers);
+console.log(numbersClone);
